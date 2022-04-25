@@ -296,3 +296,13 @@ nav ul li a {
   }
 
 }
+
+/* Disabling in mobile */
+@media only screen and (max-width: 980px) {  
+  html, body {
+    display: none;
+  }
+  body::after{
+    content: "Open this in PC or Laptop";
+  }
+}
