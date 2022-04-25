@@ -1,12 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>VLab - IEM</title>
+    <meta name="author" content="Rohan Das" />
+    <link rel="icon" type="image/x-icon" href="img/Untitled-design-98.png" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" media="screen" href="css/style.css">
 </head>
+
+<style>
+    .center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+    }
+
+    .text {
+        color: rgb(192, 189, 189);
+        font-size: 300%;
+    }
+
+    a {
+        background-image: linear-gradient(to right,
+                #54b3d6,
+                #54b3d6 50%,
+                #fff 50%);
+        background-size: 200% 100%;
+        background-position: -100%;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:before {
+        content: '';
+        background: #54b3d6;
+        display: block;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:hover {
+        background-position: 0;
+    }
+
+    a:hover::before {
+        width: 100%;
+    }
+</style>
+
 <body>
-    
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="menu-icon">
+                    <i class="fa fa-bars fa-2x"></i>
+                </div>
+                <div class="logo">
+                    <a href="/index.html">
+                        <img src="img/Untitled-design-98.png" width="50" height="50" style="border-radius: 50%;"
+                            alt="iem-logo">
+                    </a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="/redirects/validID/index.html">Task 1</a></li>
+                        <li><a href="#">Task 2</a></li>
+                        <li><a href="#">Task 3</a></li>
+                        <li><a href="#">Task 4</a></li>
+                        <li><a href="#">Task 5</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <!-- particles.js container -->
+            <div id="particles-js"></div>
+
+            <div class="center">
+                <div class="text"></div>
+            </div>
+        </div>
+    </div>
 </body>
+<!-- scripts -->
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+<!-- stats.js -->
+<script src="js/lib/stats.js"></script>
+<!-- For Navbar -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    // For Navbar
+    $(document).ready(function () {
+        $(".menu-icon").on("click", function () {
+            $("nav ul").toggleClass("showing");
+        });
+    });
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop()) {
+            $('nav').addClass('black');
+        }
+        else {
+            $('nav').removeClass('black');
+        }
+    });
+
+
+    // For Type Effect
+    var TextScramble = /** @class */ (function () {
+        function TextScramble(el) {
+            this.el = el;
+            this.chars = "!<>-_\\/[]{}—=+*^?#________";
+            this.update = this.update.bind(this);
+        }
+        TextScramble.prototype.setText = function (newText) {
+            var _this = this;
+            var oldText = this.el.innerText;
+            var length = Math.max(oldText.length, newText.length);
+            var promise = new Promise(function (resolve) { return (_this.resolve = resolve); });
+            this.queue = [];
+            for (var i = 0; i < length; i++) {
+                var from = oldText[i] || "";
+                var to = newText[i] || "";
+                var start = Math.floor(Math.random() * 40);
+                var end = start + Math.floor(Math.random() * 40);
+                this.queue.push({ from: from, to: to, start: start, end: end });
+            }
+            cancelAnimationFrame(this.frameRequest);
+            this.frame = 0;
+            this.update();
+            return promise;
+        };
+        TextScramble.prototype.update = function () {
+            var output = "";
+            var complete = 0;
+            for (var i = 0, n = this.queue.length; i < n; i++) {
+                var _a = this.queue[i], from = _a.from, to = _a.to, start = _a.start, end = _a.end, char = _a.char;
+                if (this.frame >= end) {
+                    complete++;
+                    output += to;
+                }
+                else if (this.frame >= start) {
+                    if (!char || Math.random() < 0.28) {
+                        char = this.randomChar();
+                        this.queue[i].char = char;
+                    }
+                    output += "<span class=\"dud\">".concat(char, "</span>");
+                }
+                else {
+                    output += from;
+                }
+            }
+            this.el.innerHTML = output;
+            if (complete === this.queue.length) {
+                this.resolve();
+            }
+            else {
+                this.frameRequest = requestAnimationFrame(this.update);
+                this.frame++;
+            }
+        };
+        TextScramble.prototype.randomChar = function () {
+            return this.chars[Math.floor(Math.random() * this.chars.length)];
+        };
+        return TextScramble;
+    }());
+    // ——————————————————————————————————————————————————
+    // Example
+    // ——————————————————————————————————————————————————
+    var phrases = [
+        ".,",
+        "This Virtual Lab is......",
+        "designed by a group of students.....",
+        "of IEM, Kolkata.....",
+    ];
+    var el = document.querySelector(".text");
+    var fx = new TextScramble(el);
+    var counter = 0;
+    var next = function () {
+        fx.setText(phrases[counter]).then(function () {
+            setTimeout(next, 800);
+        });
+        counter = (counter + 1) % phrases.length;
+    };
+    next();
+</script>
+
 </html>
