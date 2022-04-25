@@ -201,6 +201,12 @@
         counter = (counter + 1) % phrases.length;
     };
     next();
+
+    $(window).on('load resize',function(){
+        if($(window).width() < 980){
+            window.location = "./404.html"
+        }
+    });
 </script>
 
 </html>

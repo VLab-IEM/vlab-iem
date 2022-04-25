@@ -302,7 +302,4 @@ nav ul li a {
   html, body {
     display: none;
   }
-  body::after{
-    content: "Open this in PC or Laptop";
-  }
 }
