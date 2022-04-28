@@ -28,9 +28,9 @@
 
     a {
         background-image: linear-gradient(to right,
-                #54b3d6,
-                #54b3d6 50%,
-                #fff 50%);
+                #fff,
+                #fff 50%,
+                #FF1493 50%);
         background-size: 200% 100%;
         background-position: -100%;
         display: inline-block;
@@ -43,7 +43,7 @@
 
     a:before {
         content: '';
-        background: #54b3d6;
+        background: #FF1493;
         display: block;
         position: absolute;
         bottom: -3px;
@@ -70,20 +70,16 @@
                     <i class="fa fa-bars fa-2x"></i>
                 </div>
                 <div class="logo">
-                    <a href="/index.html">
+                    <a href="https://iem.edu.in/">
                         <img src="img/Untitled-design-98.png" width="50" height="50" style="border-radius: 50%;"
                             alt="iem-logo">
                     </a>
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="./redirects/about/about.html">About Us</a></li>
-                        <li><a href="/redirects/validID/index.html">Task 1</a></li>
-                        <li><a href="#">Task 2</a></li>
-                        <li><a href="#">Task 3</a></li>
-                        <li><a href="#">Task 4</a></li>
-                        <li><a href="#">Task 5</a></li>
+                        <li style="font-weight: bolder;"><a href="/index.html">Home</a></li>
+                        <li style="font-weight: bolder;"><a href="./redirects/about/about.html">About Us</a></li>
+                        <li style="font-weight: bolder;"><a href="/redirects/taskList/index.html">Tasklist</a></li>
                     </ul>
                 </div>
             </nav>
@@ -93,7 +89,7 @@
             <div id="particles-js"></div>
 
             <div class="center">
-                <div class="text"></div>
+                <div style="font-weight: bolder; color: #FF1493;" class="text"></div>
             </div>
         </div>
     </div>
@@ -186,17 +182,17 @@
     // Example
     // ——————————————————————————————————————————————————
     var phrases = [
-        ".,",
+        "Welcome To VLab.....",
         "This Virtual Lab is......",
-        "designed by a group of students.....",
-        "of IEM, Kolkata.....",
+        "designed by the students of.....",
+        "IEM, IT Department.....",
     ];
     var el = document.querySelector(".text");
     var fx = new TextScramble(el);
     var counter = 0;
     var next = function () {
         fx.setText(phrases[counter]).then(function () {
-            setTimeout(next, 800);
+            setTimeout(next, 4000);
         });
         counter = (counter + 1) % phrases.length;
     };

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Lexical Analyzer</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="https://lh3.googleusercontent.com/lJp6Yvi9jM_WPdo78z-e2VnviUZJHEXZgf5WoOB-STSEATAVniG0XZLFIOpRghFfzvU=h200" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-dark" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom font-weight-bolder" style="background-color: #7f00ff; font-weight: bolder; color: white;">Compiler Design Project</div>
+                <div class="list-group list-group-flush" >
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#aim">Aim</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#plu">Programming Languages Used</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#theory">Theory</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#logic">Program Logic</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#io">Input/Output Examples</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#sim">Online Simulator</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#tsc">Time and Space Complexity</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#discussion">Discussion</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="py-2 px-4">Create a Lexical Analyzer</h1>
+                    
+                    <ul>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Aim -->
+                            <h2 id="aim">Aim</h2>
+                            <p style="color: black;">To design an online lexical analyzer simulator for C programming language that detects token and classifies them into keywords, identifiers, special characters and operators while ignoring tab, new line and redundant spaces.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- PLU -->
+                            <h2 id="plu">Programming Languages Used</h2>
+                            <ul style="color: black;">
+                                <li>C</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Theory -->
+                            <h2 id="theory">Theory</h2>
+                            <p style="color: black;">Given line of code as user input, representing a program snippet, the task is to detect tokens in a C program called the lexical analysis of a compiler. Hence, this simulator is referred to as the lexical analyzer. The lexical analyzer is a part of the compiler that detects tokens of a program and sends it to the syntax analyzer. 
+                                Token is the smallest logical unit of a program and can be of the following types:</p>
+                            <ul style="color: black;">
+                                <li>Keywords/ Function Names</li>
+                                <li>Identifier</li>
+                                <li>String Constants</li>
+                                <li>Special Characters</li>
+                                <li>Operators</li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Logic -->
+                            <h2 id="logic">Program Logic</h2>
+                            <ul style="color: black;">
+                                <li>Traverse the input program snippet character by character</li>
+                                <li>Tokenization i.e., dividing the program into valid tokens</li>
+                                <li>Remove tab and white space characters</li>
+                                <li>Remove comments</li>
+                                <li>Remove the rest parts of the program that are meant for the understanding of the user and are in no way needed during compilation</li>
+                                <li>Place the tokens under each of the below sub-categories: 
+                                    <ul>
+                                        <li>Keywords for the function names</li>
+                                        <li>Identifiers for the variables</li>
+                                        <li>String constants for constants with fixed sequence of characters</li>
+                                        <li>192 Special characters among 256 defined characters by ASCII</li>
+                                        <li>Operators for the mathematical operations</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- I/O Ex. -->
+                            <h2 id="io">Input Output Examples</h2>
+                            <ul style="color: black;">
+                                <li>
+                                    <p class="font-italic">Input: float x = a + 1b</p>
+                                </li>
+                                <li>
+                                    <p class="font-italic">
+                                        Output:
+                                        <br>
+                                        All tokens are:-
+                                        <br>
+                                        Valid Keyword: float
+                                        <br>
+                                        Valid Identifier: x
+                                        <br>
+                                        Valid Operator: =
+                                        <br>
+                                        Valid Identifier: a
+                                        <br>
+                                        Valid Operator: +
+                                        <br>
+                                        Invalid Identifier: 1b
+                                    </p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Simulator. -->
+                            <h2 id="sim">Online Simulator</h2>
+                            <p style="color: black;">Click on this <a href="https://vlab-iem-lexical-analyzer.netlify.app/">Link</a> to go to the simulator.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Time and Space Complex. -->
+                            <h2 id="tsc">Time and Space Complexity</h2>
+                            <ul style="color: black;">
+                                <li>
+                                    <p class="font-italic">Time Complexity: O(n^2)</p>
+                                </li>
+                                <li>
+                                    <p class="font-italic">Space Complexity: O(1)</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Discussion. -->
+                            <h2 id="discussion">Discussion</h2>
+                            <p style="color: black;">We wrote the online simulator using C programming language and integrated it with the website designed using HTML, CSS, JavaScript. The lexical analyzer simulator is designed for C language that detects token and classifies them into keywords, identifiers, string constants, special characters and operators while ignoring tab, new line and redundant spaces.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
