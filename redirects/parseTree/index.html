@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Parse Tree</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="https://media.istockphoto.com/vectors/tree-tech-line-icon-vector-id1126025424" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-dark" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom font-weight-bolder" style="background-color: #7f00ff; font-weight: bolder; color: white;">Compiler Design Project</div>
+                <div class="list-group list-group-flush" >
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#aim">Aim</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#plu">Programming Languages Used</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#theory">Theory</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#logic">Program Logic</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#io">Input/Output Examples</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#sim">Online Simulator</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#discussion">Discussion</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#error">Errors</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="py-2 px-4">Create a Parse Tree</h1>
+                    
+                    <ul>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Aim -->
+                            <h2 id="aim">Aim</h2>
+                            <p style="color: black;">To design an online Lexical Analyzer simulator to derive leftmost derivation tree and rightmost derivation tree from a given grammar for a goal string.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- PLU -->
+                            <h2 id="plu">Programming Languages Used</h2>
+                            <ul style="color: black;">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Theory -->
+                            <h2 id="theory">Theory</h2>
+                            <p style="color: black;">The process of deriving a string is called as derivation. The geometrical representation of a derivation is called as a parse tree or derivation tree.</p>
+                            <h3>Properties of Parse Tree</h3>
+                            <ul style="color: black;">
+                                <li>Root node of a parse tree is the start symbol of the grammar.</li>
+                                <li>Each leaf node of a parse tree represents a terminal symbol.</li>
+                                <li>Each interior node of a parse tree represents a non-terminal symbol.</li>
+                            </ul>
+                            <div style="text-align: center; padding-top: 5px; padding-bottom: 5px;">
+                                <img src="./assets/1.png" alt="">
+                            </div>
+                            <h3>Leftmost Derivation:</h3>
+                            <p style="color: black;">The process of deriving a string by expanding the leftmost non-terminal at each step is called as leftmost derivation.</p>
+                            <h3>Rightmost Derivation:</h3>
+                            <p style="color: black;">The process of deriving a string by expanding the rightmost non-terminal at each step is called as rightmost derivation.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Logic -->
+                            <h2 id="logic">Program Logic</h2>
+                            <ul style="color: black;">
+                                <li>We start from Starting symbol and represent it as the root node.</li>
+                                <li>We check for input symbol and start expanding according to the given grammar.</li>
+                                <li>We start elaborating the production i.e., expanding the non-terminals from left to right in case of leftmost derivation tree and from right to left in case of rightmost derivation tree.</li>
+                                <li>Similarly, we move the expansion for all the production until we achieve the goal string.</li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- I/O Ex. -->
+                            <h2 id="io">Examples</h2>
+                            <p style="color: black;">
+                                Let's consider a Grammar: <br>
+                                S → aB / bA <br>
+                                S → aS / bAA / a <br>
+                                B → bS / aBB / b <br>
+                                Let us consider a string <br>
+                                w = aaabbabbba
+                            </p>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h3>Leftmost Derivation:</h3>
+                                        <p style="color: black;">
+                                            S → aB <br>
+                                            → aaBB (Using B → aBB) <br>
+                                            → aaaBBB (Using B → aBB) <br>
+                                            → aaabBB (Using B → b) <br>
+                                            → aaabbB (Using B → b) <br>
+                                            → aaabbaBB (Using B → aBB) <br>
+                                            → aaabbabB (Using B → b) <br>
+                                            → aaabbabbS (Using B → bS) <br>
+                                            → aaabbabbbA (Using S → bA) <br>
+                                            → aaabbabbba (Using A → a) <br>
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <h3>Leftmost Derivation Tree:</h3>
+                                        <img src="./assets/2.png" alt="tree" srcset="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h3>Rightmost Derivation:</h3>
+                                        <p style="color: black;">
+                                            S → aB <br>
+                                            → aaBB (Using B → aBB) <br>
+                                            → aaBaBB (Using B → aBB) <br>
+                                            → aaBaBbS (Using B → bS) <br>
+                                            → aaBaBbbA (Using S → bA) <br>
+                                            → aaBaBbba (Using A → a) <br>
+                                            → aaBabbba (Using B → b) <br>
+                                            → aaaBBabbba (Using B → aBB) <br>
+                                            → aaaBbabbba (Using B → b) <br>
+                                            → aaabbabbba (Using B → b) <br>
+                                        </p>
+                                    </div>
+                                    <div class="col-8">
+                                        <h3>Right Derivation Tree:</h3>
+                                        <img src="./assets/3.png" alt="tree" srcset="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Simulator. -->
+                            <h2 id="sim">Online Simulator</h2>
+                            <p style="color: black;">Click on this <a href="#">Link</a> to go to the simulator.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Discussion. -->
+                            <h2 id="discussion">Discussion</h2>
+                            <p style="color: black;">We wrote the online simulator using HTML, CSS, JavaScript and successfully implemented the concept of left and right derivation tree.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Error. -->
+                            <h2 id="error">Sources of Errors</h2>
+                            <p style="color: black;">If the grammar is ambiguous i.e., if there exist more than one left or right derivations for the same string.
+                                For an ambiguous grammar left and right derivation tree of a given grammar may yield different results.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
