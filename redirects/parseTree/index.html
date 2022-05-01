@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Parse Tree</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="https://w7.pngwing.com/pngs/655/479/png-transparent-spirituality-logo-om-watercolor-tree-leaf-vegetable-food-leaf-thumbnail.png" />
+        <link rel="stylesheet" href="../../css/fontawesome-free-6.1.1-web/css/all.min.css">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-dark" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom font-weight-bolder" style="background-color: #7f00ff; font-weight: bolder; color: white;">Compiler Design Project</div>
+                <div class="list-group list-group-flush" >
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#aim">Aim</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#plu">Programming Languages Used</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#theory">Theory</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#logic">Program Logic</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#code">C Code</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#sim">Online Simulator</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#discussion">Discussion</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3 bg-dark text-white" href="#error">Sources of Errors</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="py-2 px-4">Generate Parse Tree</h1>
+                    
+                    <ul>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Aim -->
+                            <h2 id="aim">Aim</h2>
+                            <p style="color: black;">To design an online simulator that implements a  Parser (Non Recursive Descent- parser) for the given grammar.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- PLU -->
+                            <h2 id="plu">Programming Languages Used</h2>
+                            <ul style="color: black;">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Theory -->
+                            <h2 id="theory">Theory</h2>
+                            <p style="color: black;">A parser generator is a good tool that you should make part of your toolbox. A parser generator takes a grammar as input and automatically generates source code that can parse streams of characters using the grammar. <br>
+                                The generated code is a parser, which takes a sequence of characters and tries to match the sequence against the grammar. The parser typically produces a parse tree, which shows how grammar productions are expanded into a sentence that matches the character sequence. The root of the parse tree is the starting nonterminal of the grammar. Each node of the parse tree expands into one production of the grammar. We'll see how a parse tree actually looks in the next section.
+                                <br>The final step of parsing is to do something useful with this parse tree. We are going to translate it into a value of a recursive data type. Recursive abstract data types are often used to represent an expression in a language, like HTML, or Markdown, or Java, or algebraic expressions. A recursive abstract data type that represents a language expression is called an abstract syntax tree (AST).                                
+                            </p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Logic -->
+                            <h2 id="logic">Program Logic</h2>
+                            <p style="color: black;">
+                                Let us take an example of a Grammar (Production Rules).
+                                <br>S -> sAB
+                                <br>A -> a
+                                <br>B -> b
+                                <br>The input string is “sab”, then the Parse Tree is :
+                            </p>
+                            <img src="./assets/1.png" alt="" srcset="">
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Code. -->
+                            <h2 id="code">C Code</h2>
+                            <p style="color: black;">Go to this <a href="https://github.com/VLab-IEM/codes">Repo</a> to get the code.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Simulator. -->
+                            <h2 id="sim">Online Simulator</h2>
+                            <p style="color: black;">Click on this <a href="https://vlab-iem-parse-tree.netlify.app/">Link</a> to go to the simulator.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Discussion. -->
+                            <h2 id="discussion">Discussion</h2>
+                            <p style="color: black;">We wrote the online simulator using JavaScript programming language and integrated it with the website designed using HTML, CSS, JavaScript. The simulator takes a Grammar(Production  Rules) as user input and generate the corresponding parse trees according to the grammar/ production rules.</p>
+                        </li>
+                        <li class="py-2" style="color:#7f00ff;">
+                            <!-- Error. -->
+                            <h2 id="error">Sources of Error</h2>
+                            <p style="color: black;">By default, Antlr parsers print errors to the console. In order to make the parser modular, however, we need to handle those errors differently. You can attach an ErrorListener to the lexer and parser in order to throw an exception when an error is encountered during parsing. The Sum.g4 file defines a method reportErrorsAsExceptions() which does this. So if you copy the technique used in this grammar file, you can call:</p>
+                            <ul>
+                                <li>lexer.reportErrorsAsExceptions();</li>
+                                <li>parser.reportErrorsAsExceptions();</li>
+                            </ul>
+                            <p>right after you create the lexer and parser. Then when you call parser.root(), it will throw an exception as soon as it encounters something that it can't match.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
